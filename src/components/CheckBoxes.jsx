@@ -1,25 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import tick from '../assets/tick.svg';
 
-const CheckBoxes = () => {
+const CheckBoxes = ({ onObjectChange }) => {
     const [checkBoxes, setCheckBoxes] = useState({
-        upperCase: false,
-        lowerCase: false,
-        numbers: false,
+        upperCase: true,
+        lowerCase: true,
+        numbers: true,
         symbols: false,
     });
 
     const handleCheckBoxChange = (e) => {
         const { name, checked } = e.target;
-        setCheckBoxes({
+        const updatedObj = {
             ...checkBoxes,
             [name]: checked,
-        });
+        };
+        setCheckBoxes(updatedObj);
+        onObjectChange(updatedObj);
     };
-
-    // useEffect(() => {
-    //     console.log('Updated CheckBoxes state:', checkBoxes);
-    // }, [checkBoxes]);
 
     return (
         <div className="flex flex-col gap-[17px]">
