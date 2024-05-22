@@ -1,10 +1,11 @@
 import React from 'react';
 
-const RangeSlider = ({value, setValue}) => {
-
+const RangeSlider = ({ value, setValue }) => {
     const handleChange = (e) => {
-        setValue(e.target.value)
-    }
+        setValue(e.target.value);
+    };
+
+    const progressBarWidth = `${(value / 20) * 100}%`;
 
     return (
         <div>
@@ -16,6 +17,11 @@ const RangeSlider = ({value, setValue}) => {
                 onChange={handleChange}
                 className="appearance-none w-full h-[8px]"
             />
+            <div
+                style={{ width: progressBarWidth }}
+                className="h-[8px] absolute top-[10px] left-0 bg-[#A4FFAF]"
+                id="ProgressBar"
+            ></div>
         </div>
     );
 };

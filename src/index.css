@@ -8,3 +8,57 @@
     margin: 0;
     font-family: 'JetBrains Mono', monospace;
 }
+
+input[type='range'] {
+    appearance: none;
+    background: transparent;
+    height: 8px;
+}
+input[type='range']::-moz-range-thumb {
+    appearance: none;
+    background: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+input[type='range']::-moz-range-progress {
+    height: 8px;
+    appearance: none;
+    background-color: #a4ffaf;
+}
+input[type='range']::-moz-range-track {
+    height: 8px;
+    background-color: #18171f;
+}
+
+/* webkit */
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    top: -9px;
+    z-index: 1;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    appearance: none;
+    border: none;
+    background-color: #18171f;
+    height: 8px;
+}
+
+/* remove the artificial progress bar if it's mozilla */
+
+@-moz-document url-prefix() {
+    #ProgressBar {
+        display: none;
+    }
+}
